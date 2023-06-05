@@ -1,0 +1,10 @@
+Unless a character has a special meaning it matches itself e.g. a has no special meaning so it matches a.
+𝑝* denotes zero or more repetitions of 𝑝.
+e.g. b* matches the empty string and: b, bb, bbb, bbbb ... note this is an infinite set of strings
+𝑝𝑎𝑡𝑡𝑒𝑟𝑛1|𝑝𝑎𝑡𝑡𝑒𝑟𝑛2 denotes the union of 𝑝𝑎𝑡𝑡𝑒𝑟𝑛1 and 𝑝𝑎𝑡𝑡𝑒𝑟𝑛2. e.g perl|python|ruby matches any of: perl, python or ruby
+| is sometimes called alternation Parentheses are used for grouping
+e.g. c(,c)* matches: c c,c c,c,c c,c,c,c ...
+and (d|e)*(f|g) matches f, g, df, dg, ef, eg, ddf, deg, edf, edg, eef, ...
+backslash \ removes any special meaning of the following character e.g. \* matches an * intstead of indicating repetition
+Any regular expression can be written using only ()*|\
+but many syntax features are present for convenience & clarity.

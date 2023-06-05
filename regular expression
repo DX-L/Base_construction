@@ -8,3 +8,30 @@ and (d|e)*(f|g) matches f, g, df, dg, ef, eg, ddf, deg, edf, edg, eef, ...
 backslash \ removes any special meaning of the following character e.g. \* matches an * intstead of indicating repetition
 Any regular expression can be written using only ()*|\
 but many syntax features are present for convenience & clarity.
+. (dot) matches any single character.
+Square brackets provide convenient matching of any one of a set of characters. [listOfCharacters] matches any single character from listOfCharacters.
+e.g. [aeiouAEIOU] matches any (English) vowel.
+A shorthand is available for ranges of characters [𝑓𝑖𝑟𝑠𝑡 − 𝑙𝑎𝑠𝑡]
+e.g[a-e] [a-z] [0-9] [a-zA-Z] [A-Za-z] [a-zA-Z0-9]
+Square brackets matching can be inverted with an ^
+[^listOfCharacters] matches any single character except those in listOfCharacters.
+e.g [^a-e] matches any character except one of the first five lowercase letters Other characters lose their special meaning inside bracket expressions.
+e.g. [^X]*X matches any characters up to and including the first X
+regular expressions may be used to match against a whole string e.g re.fullmatch in Python
+regular expressions are often used to match a substring (part of a string) e.g grep prints lines containing a substring matching the regular expression e.g re.search in Python (re.match matches only at start of string)
+when matching part of a string you can limit matches to the start or end of a string (or both) start of the string is denoted by ^ (uparrow)
+^hello matches a string starting with hello
+note ^ has two meanings in regular expressions
+e.g. ^[abc] matches a or b or c at the start of a string.
+e.g. [^abc] matches any character except a or b or c (anywhere in the string)
+the end of the string is denoted by $ (dollar)
+cat$ matches cat at the end of a string.
+^cat.*dog$ matches any string starting cat and finishing dog.
+For convenience and readability, more special characters denoting repetition:
+𝑝* denotes zero or more repetitions of 𝑝
+𝑝+ denotes one or more repetitions of 𝑝
+e.g. [0-9]+ matches any sequence of digits (i.e. matches integers)
+e.g. [-'a-zA-Z]+ matches any sequence of letters/hyphens/apostrophes
+this pattern could be used to match words in a piece of English text, e.g. it's, John, ...
+𝑝? denotes zero or one occurence of 𝑝 𝑝{𝑛} denotes 𝑛 repetitions of 𝑝
+e.g z[0-9]{7} matches a UNSW zid 𝑝{𝑛,𝑚} denotes 𝑛 to 𝑚 repetitions of 𝑝 𝑝{𝑛,} denotes 𝑛 or more repetitions of 𝑝 𝑝{,𝑚} denotes 𝑚 or less repetitions of 𝑝
